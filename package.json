@@ -1,0 +1,78 @@
+{
+  "name": "hermeseq-wallet-intelligence",
+  "version": "2.0.0",
+  "description": "ETH Wallet Intelligence Agent - Desktop Application",
+  "main": "electron/main.js",
+  "author": "Zen-Tech.inc",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build": "node scripts/build.js",
+    "dist": "npm run build && electron-builder",
+    "dist:win": "npm run build && electron-builder --win",
+    "dist:mac": "npm run build && electron-builder --mac",
+    "dist:linux": "npm run build && electron-builder --linux",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "dependencies": {
+    "electron-serve": "^1.1.0",
+    "electron-store": "^8.1.0",
+    "find-free-port": "^2.0.0",
+    "wait-on": "^7.0.1"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.6.4",
+    "fs-extra": "^11.1.1",
+    "rimraf": "^5.0.5"
+  },
+  "build": {
+    "appId": "com.zentech.hermeseq",
+    "productName": "HermesEQ",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "electron/**/*",
+      "python-app/**/*",
+      "static/**/*",
+      "!**/node_modules/*/{test,__tests__,tests,example,docs,coverage,CHANGELOG.md,README.md,*.log}",
+      "!**/python-app/__pycache__",
+      "!**/python-app/*.pyc"
+    ],
+    "extraResources": [
+      {
+        "from": "python-app/",
+        "to": "python-app/",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "static/",
+        "to": "static/",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": ["nsis", "portable"],
+      "icon": "static/icon.ico",
+      "artifactName": "${productName}-${version}-Setup-${arch}.${ext}"
+    },
+    "mac": {
+      "target": ["dmg", "zip"],
+      "icon": "static/icon.icns",
+      "category": "public.app-category.finance"
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "icon": "static/icon.png",
+      "category": "Finance"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}

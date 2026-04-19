@@ -14,15 +14,15 @@
     # Password for decrypting `mac_certs`
     mac_certs_password: # optional
     # Whether the app should be released after a successful build
-    release: # optional
+    release: v1.0
     # Base64-encoded code signing certificate for Windows
     windows_certs: # optional
     # Password for decrypting `windows_certs`
     windows_certs_password: # optional
     # Directory where NPM/Yarn commands should be run
-    package_root: # optional, default is .
+    package_root: /electron/
     # Name of the optional NPM build script which is executed before `electron-builder`
-    build_script_name: # optional, default is build
+    build_script_name: /electron/scripts/build.js
     # Whether the action should execute the NPM build script before running `electron-builder`
     skip_build: # optional
     # Whether to run `electron-builder` using the Vue CLI plugin instead of calling the command directly
@@ -30,7 +30,7 @@
     # Other arguments to pass to the `electron-builder` command, e.g. configuration overrides
     args: # optional, default is 
     # Maximum number of attempts for completing the build and release step
-    max_attempts: # optional, default is 1
+    max_attempts: 1
     # Directory where `electron-builder` commands should be run
     app_root: # optional
           

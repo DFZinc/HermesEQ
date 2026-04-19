@@ -1,4 +1,4 @@
-            - name: Electron Builder
+             name: Electron Builder
   # You may pin to the exact commit or the version.
   # uses: paneron/action-electron-builder@14b133702d1b2e9749912051c43ed62b4afe56c8
   uses: paneron/action-electron-builder@v1.8.1

@@ -1,0 +1,11 @@
+{
+  "etherscan_api_key": "",
+  "alchemy_api_key": "",
+  "zerox_api_key": "",
+  "min_volume_usd_1h": 5000,
+  "min_liquidity_usd": 5000,
+  "min_txns_1h": 10,
+  "min_score": 65,
+  "buyers_to_analyze": 30,
+  "poll_interval_seconds": 120
+}
